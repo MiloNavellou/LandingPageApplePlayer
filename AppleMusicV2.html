@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apple Music V2 — Portfolio</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap");
+
+      @font-face {
+        font-family: "Misto";
+        src: url("font/Misto.woff2") format("woff2");
+        font-weight: 900;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body,
+      html {
+        width: 100%;
+        height: 100vh;
+        background-color: #12151d;
+        color: #ffffff;
+        font-family: "Inter", sans-serif;
+        overflow: hidden;
+        position: relative;
+        background-image: url("img/album-img-long.png");
+        display: flex;
+        justify-content: center;
+      }
+
+      /* Arrière-plan flouté d'ambiance corrigé */
+
+      /* Filtre de grain analogique superposé */
+      .grain {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.25'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      /* Structure principale */
+      .container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 60px 80px;
+        position: relative;
+        z-index: 1;
+      }
+
+      header {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+      }
+
+      .logo-box {
+        color: #000000;
+        padding: 10px 12px;
+        border-radius: 12px;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        transition: 0.5s;
+      }
+      .logo-box:hover {
+        scale: 1.1;
+        transition: 0.5s;
+      }
+
+      .logo-box svg,
+      .logo-box img {
+        width: 60px;
+        height: auto;
+      }
+
+      .hero-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+
+      .misto-title {
+        font-family: "Misto", "Futura", sans-serif;
+        font-size: clamp(4.5rem, 11vw, 13rem);
+        line-height: 0.85;
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        text-transform: uppercase;
+        color: #ffffff;
+        text-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+      }
+
+      .misto-title div {
+        display: block;
+      }
+
+      .links-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-end;
+        padding-bottom: 20px;
+      }
+
+      .portfolio-link {
+        font-family: "Instrument Serif", serif;
+        font-size: 1.6rem;
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+        border-bottom: 1px solid transparent;
+      }
+
+      .portfolio-link:hover {
+        color: #ffffff;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+        transform: translateX(-4px);
+      }
+
+      .portfolio-link span {
+        font-size: 1.1rem;
+      }
+
+      @media (max-width: 900px) {
+        .container {
+          padding: 30px 24px;
+        }
+        .hero-section {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 40px;
+        }
+        .links-sidebar {
+          align-items: flex-start;
+        }
+        .portfolio-link:hover {
+          transform: translateX(4px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-image"></div>
+    <div class="grain"></div>
+
+    <div class="container">
+      <!-- Logo en haut à droite -->
+      <header>
+        <div class="logo-box">
+          <img src="img/logo.png" alt="Logo Music" />
+        </div>
+      </header>
+
+      <!-- Titre géant Misto et liens -->
+      <div class="hero-section">
+        <div class="links-sidebar">
+          <a
+            href="https://github.com/ton-profil/ios-repo"
+            target="_blank"
+            class="portfolio-link"
+          >
+            Repository iOS <span>↗</span>
+          </a>
+          <a
+            href="https://github.com/ton-profil/macos-repo"
+            target="_blank"
+            class="portfolio-link"
+          >
+            Repository macOS <span>↗</span>
+          </a>
+          <a
+            href="https://figma.com/..."
+            target="_blank"
+            class="portfolio-link"
+          >
+            Maquettes <span>↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
